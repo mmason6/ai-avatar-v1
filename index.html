@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Avatar</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+
+  <div class="avatar-wrap">
+
+    <div class="status" id="status">IDLE</div>
+
+    <div class="avatar-stage">
+      <div class="body-layer" id="bodyLayer"></div>
+
+      <div class="face-layer" id="face">
+        <div class="eyes">
+          <div class="eye"></div>
+          <div class="eye"></div>
+        </div>
+
+        <div class="mouth-wrap">
+          <div class="mouth idle-mouth" id="mouth"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="speech-block" style="display:none;">
+      <div class="label">You</div>
+      <div class="speech user-text" id="userText">Press Start Conversation.</div>
+    </div>
+
+    <div class="speech-block" style="display:none;">
+      <div class="label">Assistant</div>
+      <div class="speech" id="speech">Ready.</div>
+    </div>
+
+    <div class="model-controls">
+      <button class="model-btn" id="modelIntellectual" data-model="intellectual">
+        Intellectual
+      </button>
+
+      <button class="model-btn" id="modelLight" data-model="light">
+        Light
+      </button>
+
+      <button class="model-btn" id="modelAdult" data-model="adult">
+        Adult
+      </button>
+    </div>
+
+    <div class="controls">
+      <button id="talkBtn">Start Conversation</button>
+    </div>
+
+  </div>
+  <video id="cameraVideo" autoplay playsinline muted></video>
+  <script src="/static/app.js"></script>
+</body>
+</html>

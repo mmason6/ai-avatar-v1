@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 100vh;
+  overflow: hidden;
+}
+
+.avatar-wrap {
+  text-align: center;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#cameraVideo {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 480px;
+  height: auto;
+  z-index: 9999;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.status {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* MAIN AVATAR STAGE */
+
+.avatar-stage {
+  flex-grow: 1;
+
+  width: auto;
+  height: calc(100vh - 110px);
+  aspect-ratio: 281 / 500;
+
+  margin: 0 auto;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 24px;
+  border: 2px solid rgba(255,255,255,0.18);
+  box-shadow: 0 0 30px rgba(255,255,255,0.08);
+
+  background-color: transparent;
+
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* BODY LAYER */
+
+.body-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url("/static/frames/body.png");
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 1;
+  pointer-events: none;
+  transform: translateY(-1px);}
+
+/* FACE LAYER */
+
+.face-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url("/static/frames/talk.png");
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateY(1px);
+}
+
+/* STATE HIGHLIGHTS */
+
+.face-layer.listening,
+.avatar-stage.listening,
+.face-layer.speaking,
+.avatar-stage.speaking {
+  transform: none;
+}
+
+/* HIDE OLD CARTOON FACE ELEMENTS */
+
+.eyes,
+.eye,
+.mouth-wrap,
+.mouth {
+  display: none !important;
+}
+
+/* HIDE TEXT BOXES */
+
+.speech-block,
+#userText,
+#speech,
+.label {
+  display: none !important;
+}
+
+/* CONTROLS */
+
+.controls {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #fff;
+  color: #111;
+}
+
+button.recording {
+  background: #88f;
+  color: white;
+}
+
+/* MODEL BUTTONS */
+
+.model-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.model-btn {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.model-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.model-btn.active {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
