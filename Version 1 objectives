@@ -1,0 +1,153 @@
+AI Avatar V1
+
+Overview
+
+AI Avatar V1 is a locally hosted, real time conversational system that combines speech, vision, and personality driven interaction into a single unified experience.
+
+The system allows a user to speak naturally to an on screen avatar, which can listen, respond, and, when appropriate, interpret visual input from a live camera feed. The result is a multimodal conversational agent that feels significantly more interactive than a traditional chatbot.
+
+This project represents Version 1 of the system, focused on establishing a stable, working foundation for real time audio, vision, and conversational flow.
+
+⸻
+
+What It Does
+	•	Accepts live speech input via microphone
+	•	Transcribes speech locally using whisper.cpp
+	•	Maintains a running conversation with short term memory
+	•	Responds using a local language model via vLLM
+	•	Uses a live camera feed to interpret visual context when relevant
+	•	Speaks responses back using a local TTS engine
+	•	Displays an animated avatar with natural movement and lip sync
+
+⸻
+
+Avatar
+
+The avatar is not a static image. It is designed to feel present, responsive, and alive.
+
+It is built using layered visual frames that simulate natural human behaviour:
+	•	Subtle body movement to avoid a rigid, static posture
+	•	Randomised blinking to create a sense of awareness
+	•	Lip synchronisation driven by audio playback
+	•	Smooth transitions between idle, listening, and speaking states
+
+The result is a character that stands naturally on screen and reacts in a way that feels continuous rather than mechanical.
+
+Visually, the avatar presents as a space age digital character, but its behaviour is grounded in familiar human cues. When combined with real time speech and vision, this creates the impression of a conversational presence rather than a traditional interface.
+
+⸻
+
+Key Features
+
+Real Time Conversation
+
+The avatar listens continuously, detects when the user has finished speaking, and responds naturally without requiring button presses.
+
+Vision Integration
+
+When required, the system can process a camera image and use it to answer questions about:
+	•	visible text
+	•	objects
+	•	posture or expression
+	•	screen content
+
+Vision is selectively used based on the user’s question, avoiding constant narration of the environment.
+
+Short Term Memory
+
+The system retains conversation history within the active session, allowing it to:
+	•	recall previously seen information
+	•	maintain context across turns
+	•	reference earlier responses
+
+Persona Modes
+
+The system includes multiple behavioural modes:
+	•	Intellectual: analytical and precise
+	•	Light: relaxed and conversational
+	•	Adult: confident, directive, and leading the interaction
+
+Local First
+
+All core processing is performed locally:
+	•	no dependency on external APIs
+	•	supports offline operation
+	•	full control over data and behaviour
+
+User Speech → Transcription → Language Model → Response → Speech Output
+                                  ↑
+                              Optional Vision Input
+
+Components
+	•	Speech to Text: whisper.cpp
+	•	Language Model: vLLM serving a multimodal model (Qwen VL)
+	•	Text to Speech: Piper
+	•	Frontend: Browser based UI with JavaScript
+	•	Backend: FastAPI server
+	•	Vision Input: Live webcam frames encoded and passed to the model
+
+⸻
+
+How Vision Works
+	•	The camera feed is captured periodically in the browser
+	•	Frames are encoded and sent only when needed
+	•	The model is prompted to use only relevant visual details
+	•	Full scene descriptions are suppressed unless explicitly requested
+
+This allows the system to behave more like a human observer:
+	•	focusing on what matters
+	•	ignoring irrelevant background information
+
+⸻
+
+Example Capabilities
+	•	Reading text from a document held in front of the camera
+	•	Recalling previously read information within the same conversation
+	•	Describing relevant visual elements when asked
+	•	Maintaining conversational flow while incorporating visual context
+
+⸻
+
+Limitations (V1)
+	•	No persistent memory beyond the current session
+	•	Vision is stateless between calls
+	•	Persona is static and does not evolve over time
+	•	No multi model orchestration or task routing
+	•	Audio expression is limited by TTS capabilities
+
+⸻
+
+Purpose of V1
+
+Version 1 establishes a working baseline for:
+	•	real time multimodal interaction
+	•	conversational flow with memory
+	•	controlled use of vision
+	•	local deployment
+
+It is intentionally simple in architecture, with all logic handled through a single model loop.
+
+⸻
+
+Next Steps (Future Versions)
+
+Future versions will introduce:
+	•	a control layer for task routing
+	•	separate models for vision, reasoning, and conversation
+	•	structured memory and scene awareness
+	•	improved emotional expression and speech delivery
+	•	enhanced embodiment and tracking
+
+⸻
+
+Summary
+
+AI Avatar V1 demonstrates that a locally hosted system can:
+	•	see
+	•	listen
+	•	respond
+	•	remember within context
+
+and do so in a way that feels interactive, grounded, and visually alive.
+
+This version serves as the foundation for building a more advanced, modular, and human like system in future iterations.
