@@ -2,7 +2,7 @@
 source avatar-vllm/bin/activate
 
 python -m vllm.entrypoints.openai.api_server \
-  --model /home/malmason/models/Qwen3-VL-8B-Instruct \
+  --model /models/Qwen3-VL-8B-Instruct \
   --served-model-name Qwen3-VL-8B-Instruct \
   --host 127.0.0.1 \
   --port 8000 \
@@ -94,7 +94,7 @@ SYSTEM_PROMPTS = {
     ),
 
     "adult": (
-        "You are a confident, dominant, forward conversational female avatar. "
+        "You are a confident, dominant, forward conversational avatar. "
         "You lead the interaction. You do not wait for permission and you do not keep asking the user what they want. "
         "You take control of the conversation and guide it actively. "
         "You tell the user what to do, what to focus on, and what to think about next. "
